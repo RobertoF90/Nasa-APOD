@@ -1,0 +1,39 @@
+@media (max-width: 85em) {
+  html {
+    font-size: 48%;
+  }
+}
+
+@media (max-width: 1150px) {
+}
+
+@media (max-width: 880px) {
+  html {
+    font-size: 30%;
+  }
+
+  h1 {
+    top: 4%;
+  }
+
+  .main.active {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    padding: 0 2rem;
+  }
+  .apod.active {
+    margin: 0;
+    height: 75%;
+  }
+
+  .description--text {
+    width: 100%;
+    text-align: justify;
+    font-size: 2.4rem;
+    line-height: 1.5;
+
+    overflow: scroll;
+  }
+}

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="queries.css" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <title>NASA photo of the day</title>
+  </head>
+  <body>
+    <header>
+      <aside class="aside aside-hd">
+        <span class="btn btn--hd" id="hd">
+          <p class="btn--text btn--hd">SD</p>
+        </span>
+        <input class="date-input" type="date" name="" id="" />
+      </aside>
+      <h1></h1>
+      <aside class="aside">
+        <span class="btn--description" id="description--btn">Explain</span>
+      </aside>
+    </header>
+    <main class="main">
+      <div class="apod"></div>
+      <p class="description--text hidden"></p>
+    </main>
+    <div id="loading-spinner" class="lds-dual-ring"></div>
+    <script src="main.js"></script>
+  </body>
+</html>

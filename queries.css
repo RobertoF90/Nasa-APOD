@@ -17,6 +17,16 @@
     width: 100%;
   }
 
+  .btn {
+    font-size: 3.2rem;
+    width: 10rem;
+    height: 5rem;
+  }
+
+  .btn--description {
+    font-size: 4rem;
+  }
+
   .apod {
     width: 95vw;
     height: auto;
@@ -42,8 +52,8 @@
   .description--text {
     width: 100%;
     text-align: justify;
-    font-size: 2.4rem;
-    line-height: 1.5;
+    font-size: 4rem;
+    line-height: 1.6;
 
     overflow: scroll;
   }

@@ -11,23 +11,26 @@ let spinner = document.getElementById('loading-spinner');
 
 let sdImg = '';
 let hdImg = '';
-let date = '';
+// let date = '';
+let date = new Date().toISOString().slice(0, 10);
 
 async function getFetch(date) {
   try {
-    if (!date) {
-      date = new Date().toISOString().slice(0, 10);
-    }
+    console.log(date);
+    // if (!date) {
+    //   console.log('no date');
+    // }
     spinner.classList.remove('hidden');
 
     const url = `https://api.nasa.gov/planetary/apod?api_key=i23bH6OOpSFJ4JF9wWlUI6cxoSGb39yFJGiFPcPS&date=${date} `;
     const res = await fetch(url);
     const data = await res.json();
 
+    apod.innerHTML = '';
     renderMedia(data);
   } catch (err) {
     console.log(`error ${err}`);
-    showError();
+    showError('Ooops! Something went wrong! Please try again!');
   }
 }
 
@@ -37,31 +40,32 @@ function renderMedia(data) {
   if (data.media_type === 'video') {
     let element = document.createElement('iframe');
     element.src = data.url;
-    apod.innerHTML = '';
     apod.appendChild(element);
   } else {
     let element = document.createElement('img');
     sdImg = data.url;
     hdImg = data.hdurl;
     element.src = sdImg;
-    apod.innerHTML = '';
     apod.appendChild(element);
   }
   descriptionText.innerText = data.explanation;
   spinner.classList.add('hidden');
 }
 
-function showError() {
-  document.querySelector('.lds-dual-ring').classList.remove('lds-dual-ring');
-  document.querySelector('#loading-spinner').innerHTML = `
-  Ooops! Something went wrong! Please try again!
-  `;
+function showError(err) {
+  // document.querySelector('.lds-dual-ring').classList.remove('lds-dual-ring');
+  document.querySelector('.apod').innerHTML = err;
 }
 
 function description() {
-  main.classList.toggle('active');
-  apod.classList.toggle('active');
-  descriptionText.classList.toggle('hidden');
+  if (
+    apod.firstChild.nodeName === 'IMG' ||
+    apod.firstChild.nodeName === 'IFRAME'
+  ) {
+    main.classList.toggle('active');
+    apod.classList.toggle('active');
+    descriptionText.classList.toggle('hidden');
+  }
 }
 
 function hd() {
@@ -90,8 +94,11 @@ function resetHD() {
 }
 
 document.querySelector('.date-input').addEventListener('change', (e) => {
-  if (e.target.value === date) {
-    return;
+  if (main.classList.contains('active')) {
+    description();
+  }
+  if (e.target.value > date) {
+    showError('I cannot see in the future... Yet!');
   } else {
     resetHD();
     getFetch(e.target.value);
@@ -99,4 +106,4 @@ document.querySelector('.date-input').addEventListener('change', (e) => {
 });
 
 dateInput.value = '';
-getFetch();
+getFetch(date);

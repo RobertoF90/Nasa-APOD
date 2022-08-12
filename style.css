@@ -96,9 +96,6 @@ iframe {
 
   overflow: scroll;
 }
-.hidden {
-  display: none;
-}
 
 .btn {
   margin-top: 1rem;
@@ -196,4 +193,8 @@ iframe {
   100% {
     transform: rotate(360deg);
   }
+}
+
+.hidden {
+  display: none;
 }

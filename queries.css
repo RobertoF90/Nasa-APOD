@@ -14,6 +14,12 @@
 
   h1 {
     top: 4%;
+    width: 100%;
+  }
+
+  .apod {
+    width: 95vw;
+    height: auto;
   }
 
   .main.active {
@@ -25,7 +31,12 @@
   }
   .apod.active {
     margin: 0;
-    height: 75%;
+    height: auto;
+  }
+
+  img {
+    display: block;
+    width: 100%;
   }
 
   .description--text {

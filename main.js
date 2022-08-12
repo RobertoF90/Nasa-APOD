@@ -7,6 +7,7 @@ let main = document.querySelector('.main');
 const h1 = document.querySelector('h1');
 let hdBtnText = document.querySelector('.btn--text');
 let dateInput = document.querySelector('.date-input');
+let spinner = document.getElementById('loading-spinner');
 
 let sdImg = '';
 let hdImg = '';
@@ -17,6 +18,7 @@ async function getFetch(date) {
     if (!date) {
       date = new Date().toISOString().slice(0, 10);
     }
+    spinner.classList.remove('hidden');
 
     const url = `https://api.nasa.gov/planetary/apod?api_key=i23bH6OOpSFJ4JF9wWlUI6cxoSGb39yFJGiFPcPS&date=${date} `;
     const res = await fetch(url);
@@ -46,6 +48,7 @@ function renderMedia(data) {
     apod.appendChild(element);
   }
   descriptionText.innerText = data.explanation;
+  spinner.classList.add('hidden');
 }
 
 function showError() {

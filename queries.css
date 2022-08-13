@@ -12,9 +12,17 @@
     font-size: 30%;
   }
 
-  h1 {
+  .page-title {
+    font-size: 4rem;
+
     top: 4%;
+    left: 42.5%;
+  }
+
+  .photo-title {
+    top: 12.5%;
     width: 100%;
+    font-size: 5.2rem;
   }
 
   .btn {
@@ -25,23 +33,30 @@
 
   .btn--description {
     font-size: 4rem;
+    padding: 2.5rem 4rem;
   }
 
   .apod {
-    width: 95vw;
+    width: 90vw;
     height: auto;
   }
 
+  .main {
+    align-items: baseline;
+  }
+
   .main.active {
-    display: flex;
+    grid-template-columns: 1fr;
+    /* display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: center; */
     gap: 2rem;
     padding: 0 2rem;
   }
   .apod.active {
     margin: 0;
     height: auto;
+    max-height: 60vh;
   }
 
   img {

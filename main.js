@@ -4,22 +4,18 @@ const descriptionContainer = document.querySelector('.description--container');
 const descriptionText = document.querySelector('.description--text');
 let apod = document.querySelector('.apod');
 let main = document.querySelector('.main');
-const h1 = document.querySelector('h1');
+const photoTitle = document.querySelector('.photo-title');
 let hdBtnText = document.querySelector('.btn--text');
 let dateInput = document.querySelector('.date-input');
 let spinner = document.getElementById('loading-spinner');
 
 let sdImg = '';
 let hdImg = '';
-// let date = '';
 let date = new Date().toISOString().slice(0, 10);
 
 async function getFetch(date) {
   try {
     console.log(date);
-    // if (!date) {
-    //   console.log('no date');
-    // }
     spinner.classList.remove('hidden');
 
     const url = `https://api.nasa.gov/planetary/apod?api_key=i23bH6OOpSFJ4JF9wWlUI6cxoSGb39yFJGiFPcPS&date=${date} `;
@@ -35,7 +31,7 @@ async function getFetch(date) {
 }
 
 function renderMedia(data) {
-  h1.innerText = data.title;
+  photoTitle.innerText = data.title;
 
   if (data.media_type === 'video') {
     let element = document.createElement('iframe');
@@ -53,7 +49,6 @@ function renderMedia(data) {
 }
 
 function showError(err) {
-  // document.querySelector('.lds-dual-ring').classList.remove('lds-dual-ring');
   document.querySelector('.apod').innerHTML = err;
 }
 

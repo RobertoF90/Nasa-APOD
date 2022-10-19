@@ -4,7 +4,7 @@ NASA APOD API app
 
 Check out the Astronomical Picture Of the Day provided by the NASA API!
 
-Link to project: https://robertofranco.dev/apps/nasa-app/index.html
+Link to project: https://robertofranco-nasa-apod.netlify.app/
 
 How It's Made:
 

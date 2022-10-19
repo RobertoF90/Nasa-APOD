@@ -47,9 +47,6 @@
 
   .main.active {
     grid-template-columns: 1fr;
-    /* display: flex;
-    flex-direction: column;
-    align-items: center; */
     gap: 2rem;
     padding: 0 2rem;
   }
@@ -69,7 +66,6 @@
     text-align: justify;
     font-size: 4rem;
     line-height: 1.6;
-
     overflow: scroll;
   }
 }
